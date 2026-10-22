@@ -1,0 +1,23 @@
+[mods]
+modId="schematicmod"
+displayName="Schematic Mod"
+version="${version}"
+credits="Created by EnderDevelopment"
+authors="Your Name"
+description='''
+A mod for saving, creating, and placing schematics across worlds.
+'''
+
+[[dependencies.schematicmod]]
+modId="forge"
+mandatory=true
+versionRange="[${loader_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.schematicmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[${minecraft_version},)"
+ordering="NONE"
+side="BOTH"

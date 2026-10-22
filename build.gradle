@@ -1,0 +1,41 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.17'
+}
+
+group = project.maven_group
+version = project.mod_version
+archivesBaseName = project.archives_base_name
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'forge'
+        url = "https://files.minecraftforge.net/maven"
+    }
+}
+
+ext.minecraft {
+    version = project.minecraft_version
+    mappings = 'official'
+    runs {
+        client {
+            workingDirectory = project.file('run')
+        }
+        server {
+            workingDirectory = project.file('run')
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:${project.loader_version}'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft_version
+}
+
+clean.doLast {
+    delete file('src/main/resources')
+}
